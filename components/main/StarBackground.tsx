@@ -3,7 +3,8 @@
 import React, { useState, useRef, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
-import { TextureLoader } from 'three';
+import { TextureLoader, Mesh } from 'three';
+import * as THREE from 'three';
 // @ts-ignore
 import * as random from 'maath/random/dist/maath-random.esm';
 
@@ -97,7 +98,7 @@ const NebulaBackground = () => {
     })),
   );
 
-  const meshRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const meshRefs = useRef<(Mesh | null)[]>([]);
 
   useFrame(() => {
     nebulaInstances.current.forEach((nebula, i) => {
@@ -125,7 +126,9 @@ const NebulaBackground = () => {
       {nebulaInstances.current.map((nebula, index) => (
         <mesh
           key={index}
-          ref={(el) => (meshRefs.current[index] = el)}
+          ref={(el) => {
+            meshRefs.current[index] = el;
+          }}
           position={[
             nebula.position[0],
             nebula.position[1],

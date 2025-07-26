@@ -25,7 +25,7 @@ const Projects = () => {
       acc[category] = projectsData.filter((project) => project.category === category);
       return acc;
     }, {} as Record<ProjectCategories, typeof projectsData>);
-  }, [projectsCategories, projectsData]);
+  }, [projectsCategories]);
 
   return (
     <section
