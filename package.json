@@ -36,7 +36,7 @@
     "@types/three": "^0.169.0",
     "@types/react-vertical-timeline-component": "^3.3.6",
     "autoprefixer": "^10",
-    "eslint": "^8",
+    "eslint": "^9",
     "eslint-config-next": "14.2.4",
     "framer-motion": "^10.18.0",
     "maath": "^0.10.8",
